@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Federico Scozzafava</title>
+    <meta charset="UTF-8" />
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/docs.css" />
+    <!-- <link rel="stylesheet" href="https://unpkg.com/@sakun/system.css" /> -->
+
+    <style>
+        /* @import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono'); */
+        body {
+            background-image: url("http://gdj.graphicdesignjunction.com/wp-content/uploads/2012/10/background+pattern+design+33.jpg");
+            /* font-family: 'Roboto Mono', monospace; */
+            /* padding-top:5em; */
+        }
+
+        footer {
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body ontouchstart>
+    <div class="container">
+        <div class="layout">
+            <p class="col col-main">
+            <div class="window sidebar" style="position: initial; display: block;
+            overflow: hidden;" id="info">
+                <div class="title-bar">
+                    <button aria-label="Close" class="close" onclick="hide_fn()"></button>
+                    <h1 class="title">Info</h1>
+                    <button aria-label="Resize" class="resize"></button>
+                </div>
+                <div class="separator"></div>
+                <div class="modeless-dialog">
+                    <div style="text-align:center;margin: 10%;"><img src="fscozzafava.jpg" alt="Federico Scozzafava"
+                            class="img-fluid rounded" style="border: 2px solid black;" width="auto"
+                            style="margin-bottom:10%;">
+                    </div>
+                    <ul class="menu-items">
+                        <h2 class="subheading center" style="padding-top:10%">Federico Scozzafava</h2>
+                        <p class="desc center">ML Engineer @ <span role="img" class="apple"
+                            aria-label="Apple"></span> Siri <br> Ph.D. @ La Sapienza</p>
+                        <div class="text-center">
+                            <div class="btn-group" role="group" aria-label="...">
+                                <button onclick="location.href='mailto:scozzafava AT di DOT uniroma1 DOT it';"
+                                    class="btn btn-sm btn-secondary" type="button"><i
+                                        class="fa fa-envelope-o"></i></button>
+                                <button onclick="location.href='https://www.linkedin.com/in/federico-scozzafava/';"
+                                    class="btn btn-sm btn-secondary" type="button"><i
+                                        class="fa fa-linkedin-square"></i></button>
+                                <button onclick="location.href='https://github.com/vascofazza';"
+                                    class="btn btn-sm btn-secondary" type="button"><i class="fa fa-github"></i></button>
+                            </div>
+                    </ul>
+                </div>
+            </div>
+
+            </p>
+            <div>
+                <p class="col col-complementary" role="complementary">
+                <div class="standard-dialog scale-down" style="position: relative; left: 50%;transform: translateX(-50%);">
+                    <h3 class="subheading center" style="padding-bottom:30px;padding-top:20px;">About me</h3>
+                    <!-- <p class="desc center">
+                        NLP Ph.D. and Machine Learning Engineer at <span role="img" class="apple"
+                        aria-label="Apple"></span> Siri</a>.</p>
+
+                    <p> -->
+                        I got my Ph.D. at the <a href="http://lcl.uniroma1.it/publications">Linguistic Computing
+                            Laboratory</a> of the Department of Computer Science at La Sapienza University of Rome,
+                        under the supervision of Prof. <a href="http://wwwusers.di.uniroma1.it/~navigli">Roberto
+                            Navigli</a> and <a href="http://wwwusers.di.uniroma1.it/~mei">Alessandro Mei</a>.</br>
+                        My thesis addresses <a href="https://en.wikipedia.org/wiki/Word-sense_disambiguation">Word Sense
+                            Disambiguation</a> in multiple languages, a task in the the Computational Semantics area of
+                        NLP.
+                    </p>
+                    <p>
+                        In my current role, I work as an NLP/ML Engineer at Apple AI/ML Siri department.
+                    </p>
+                    <p>
+                        In my free time I play modern Jazz guitar, ride my bike, enjoy retrogames and build custom
+                        <a href="https://www.youtube.com/watch?v=qSviFkpLFKI">CPUs</a>.
+                    </p>
+
+                </div>
+
+                <div class="window">
+                    <div class="title-bar">
+                        <!-- <button aria-label="Close" class="close"></button> -->
+                        <h1 class="title">Publications</h1>
+                        <button aria-label="Resize" class="resize"></button>
+                    </div>
+                    <div class="separator"></div>
+                    <div class="window-pane" , style="height:50vmax;">
+                        <h3 class="subheading">2020</h3>
+
+                        <div class="example">
+                            <strong>Personalized PageRank with Syntagmatic Information for Multilingual Word Sense
+                                Disambiguation</strong>
+                            <br>
+                            Federico Scozzafava, Marco Maru, Fabrizio Brignone, Giovanni Torrisi, Roberto Navigli.
+                            </br><i>Proc. of the 58th Annual Meeting of the Association for Computational Linguistics
+                                (ACL)
+                                2020: System Demonstrations. Seattle, US, July 5-10, 2020.</i>
+                            <br>
+                            <a href="pubs/syntagrank.pdf" class="btn">Paper</a>
+                            <a href="http://syntagnet.org/" class="btn">Website</a>
+                        </div>
+
+                        <div class="example">
+                            <strong>CluBERT: A Cluster-Based Approach for Learning Sense Distributions in Multiple
+                                Languages</strong>
+                            <br>
+                            Tommaso Pasini, Federico Scozzafava, Bianca Scarlini.</br><i>Proc. of the 58th Annual
+                                Meeting of
+                                the Association for Computational Linguistics (ACL) 2020. Seattle, US, July 5-10,
+                                2020.</i>
+                            <br>
+                            <a href="pubs/clubert.pdf" class="btn">Paper</a>
+                            <a href="https://github.com/SapienzaNLP/clubert" class="btn">Website</a>
+                        </div>
+
+                        <h3 class="subheading">2019</h3>
+
+                        <div class="example">
+                            <strong>Challenging Supervised Word Sense Disambiguation with Lexical-Semantic
+                                Combinations</strong>
+                            <br>
+                            Federico Scozzafava, Marco Maru, Fabrizio Brignone, Giovanni Torrisi, Roberto Navigli.
+                            </br>Marco Maru, Federico Scozzafava, Federico Martelli, Roberto Navigli.</i>
+                            </br><i>Proc. of the 2019 Conference on Empirical Methods in Natural Language Processing
+                                (EMNLP
+                                2019), Hong Kong, Hong Kong, November 3-7, 2019.</i>
+                            <br>
+                            <a href="pubs/syntagnet.pdf" class="btn">Paper</a>
+                            <a href="http://syntagnet.org/" class="btn">Website</a>
+                        </div>
+
+                        <h3 class="subheading">2018</h3>
+
+                        <div class="example">
+                            <strong>BioPen - Fusing password choice and biometric interaction at presentation
+                                level</strong>
+                            <br>
+                            Maria De Marisco, Federico Ponzi, Federico Scozzafava, Genoeffa Tortora.
+                            </br><i>Pattern Recognition Letters, April 2018.</i>
+                            <br>
+                            <a href="pubs/biopen.pdf" class="btn">Paper</a>
+                        </div>
+
+                        <h3 class="subheading">2015</h3>
+
+                        <div class="example">
+                            <strong>Automatic Identification and Disambiguation of Concepts and Named Entities in the
+                                Multilingual Wikipedia</strong>
+                            </br>Federico Scozzafava, Alessandro Raganato, Andrea Moro and Roberto Navigli.
+                            </br><i>Proceedings of the 14th Congress of the Italian Association for Artificial
+                                Intelligence
+                                (AI*IA 2015), Ferrara, Italy, September 23-25th, 2015.</i>
+                            <br>
+                            <a href="pubs/AIIA_2015_Scozzafavaetal.pdf" class="btn">Paper</a>
+                            <a href="http://http://lcl.uniroma1.it/babelfied-wikipedia/" class="btn">Website</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="window">
+                    <div class="title-bar">
+                        <!-- <button aria-label="Close" class="close"></button> -->
+                        <h1 class="title">Projects</h1>
+                        <button aria-label="Resize" class="resize"></button>
+                    </div>
+                    <div class="separator"></div>
+                    <div class="window-pane" , style="height:60vmax;">
+                        <h3 class="subheading">MK1 CPU</h3>
+                        <div class="example">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/qSviFkpLFKI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <br>
+                            Programmable 8-bit CPU from scratch, out of basic series 74LS logic ICs.
+                            <br>
+                            <a href="https://github.com/vascofazza/8bit-cpu" class="btn">GitHub</a>
+                            <br>
+                            Reviews:
+                            <br>
+                            
+                            <a href="https://hackaday.com/2020/12/31/diy-8-bit-computer-knows-all-the-tricks/" class="btn">Hackaday</a>
+                            <a href="https://www.hackster.io/news/see-inside-of-a-cpu-with-the-mk1-8bit-computer-14fa9e313c73" class="btn">Hackster</a>
+                            <a href="https://blog.informaticalab.com/viaggio-allinterno-di-una-cpu-con-il-mk1-8bit-computer/" class="btn">InformaticaLab</a>
+                        </div>
+                        
+                        <h3 class="subheading">Nixie Clock</h3>
+                        <div class="example">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/ZD35oEGX9IY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <br>
+                            Smart clock designed around the popular IN-14 Nixie tubes.
+                            <br>
+                            <a href="https://github.com/vascofazza/cloxie_nixie_clock" class="btn">GitHub</a>
+                        </div>
+
+                    </div>
+                </div>
+
+                </p>
+            </div>
+        </div>
+    </div>
+    <footer>&copy; Federico Scozzafava 2022</footer>
+</body>
+
+</html>
+
+<script>
+    function hide_fn() {
+  var x = document.getElementById("info");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>

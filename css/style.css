@@ -1,0 +1,631 @@
+/*! system.css v0.1.7 - https://github.com/sakofchit/system.css */
+/**
+ * system.css
+ * Copyright (c) 2022 Sakun Acharige <sakun.co>
+ */
+
+:root {
+  --box-shadow: 2px 2px;
+
+  /* Spacing */
+  --element-spacing: 8px;
+  --grouped-element-spacing: 6px;
+  --radio-width: 12px;
+  --checkbox-width: 13px;
+  --radio-label-spacing: 6px;
+
+  /* Some detailed computations for radio buttons and checkboxes (from 98.css) */
+  --radio-total-width-precalc: var(--radio-width) + var(--radio-label-spacing);
+  --radio-total-width: calc(var(--radio-total-width-precalc));
+  --radio-left: calc(-1 * var(--radio-total-width-precalc));
+  --radio-dot-width: 6px;
+  --radio-dot-top: calc(var(--radio-width) / 2 - var(--radio-dot-width) / 2);
+  --radio-dot-left: calc(
+    -1 * (var(--radio-total-width-precalc)) + var(--radio-width) / 2 - var(
+        --radio-dot-width
+      ) / 2
+  );
+
+  --checkbox-total-width-precalc: var(--checkbox-width) +
+    var(--radio-label-spacing);
+  --checkbox-total-width: calc(var(--checkbox-total-width-precalc));
+  --checkbox-left: calc(-1 * var(--checkbox-total-width-precalc));
+  --checkmark-width: 12px;
+  --checkmark-top: 2px;
+  --checkmark-left: 2px;
+}
+
+@font-face {
+  font-family: Chicago;
+  src: url("fonts/ChicagoFLF.ttf");
+}
+@font-face {
+  font-family: Monaco;
+  src: url("fonts/monaco.ttf")
+}
+
+/* Fonts below are recreations by Giles Booth */
+@font-face {
+  font-family: Chicago_12;
+  src: url("fonts/ChiKareGo2.ttf");
+}
+@font-face {
+  font-family: Geneva_9;
+  src: url("fonts/FindersKeepers.ttf")
+}
+::-webkit-scrollbar {
+  width: 22px;
+  background-color: #fff;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000);
+  background-color: white;
+  background-size: 4px 4px;
+  background-position: 0 0, 2px 2px;
+  width: 10px;
+  border-left: 3px solid black;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 20px;
+  box-sizing: content-box;
+  background-color: #fff;
+  border: 2px solid black;
+  border-right: none;
+}
+
+::-webkit-scrollbar-button:horizontal:start:decrement,
+::-webkit-scrollbar-button:horizontal:end:increment,
+::-webkit-scrollbar-button:vertical:start:decrement,
+::-webkit-scrollbar-button:vertical:end:increment {
+  display: block;
+}
+
+::-webkit-scrollbar-button:vertical:start{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='22' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' stroke='%23000' d='M.5.5h21v22.375H.5z'/%3E%3Cpath fill='%23000' d='M1 23h20v-2H1zM1.375 12.375h5.5V11h-5.5zM6.875 17.875h6.875V16.5H6.875zM6.875 17.875v-5.5H5.5v5.5zM9.625 5.5V4.125H8.25V5.5zM11 4.125V2.75H9.625v1.375zM19.25 12.375V11h-1.375v1.375zM17.875 11V9.625H16.5V11zM16.5 9.625V8.25h-1.375v1.375zM15.125 8.25V6.875H13.75V8.25zM13.75 6.875V5.5h-1.375v1.375zM12.375 5.5V4.125H11V5.5zM8.25 6.875V5.5H6.875v1.375zM6.875 8.25V6.875H5.5V8.25zM5.5 9.625V8.25H4.125v1.375zM4.125 11V9.625H2.75V11z'/%3E%3Cpath fill='%23000' d='M2.75 12.375V11H1.375v1.375zM15.125 17.875v-5.5H13.75v5.5zM13.75 12.375h5.5V11h-5.5z'/%3E%3C/svg%3E");background-repeat:no-repeat;height:23.38px}
+::-webkit-scrollbar-button:vertical:start:active{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='22' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' stroke='%23000' d='M.5.5h21v22.38H.5z'/%3E%3Cpath fill='%23000' d='M1 23.005h20v-2H1zM1.375 12.378h5.5v-1.375h-5.5zM6.875 17.879h6.875V6.877H6.875zM6.875 17.879v-5.501H5.5v5.5zM9.625 5.501V4.126H8.25v1.375zM11 4.126V2.75H9.625v1.375zM19.25 12.378v-1.375h-1.375v1.375zM17.875 11.002V9.627H13.75v1.375zM16.5 9.627V8.252h-2.75v1.375zM15.125 8.252V6.877H13.75v1.375zM13.75 6.876V5.501h-1.375v1.375zM12.375 5.501V4.126h-2.75v1.375zM12.375 6.876V5.501h-5.5v1.375zM6.875 8.252V6.877H5.5v1.375zM6.875 9.627V8.252h-2.75v1.375zM6.875 11.002V9.627H2.75v1.375z'/%3E%3Cpath fill='%23000' d='M2.75 12.378v-1.375H1.375v1.375zM15.125 17.879v-5.501H13.75v5.5zM13.75 12.378h5.5v-1.375h-5.5z'/%3E%3C/svg%3E");background-repeat:no-repeat;height:23.38px}
+::-webkit-scrollbar-button:vertical:end{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='22' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' stroke='%23000' d='M.5 22.875h21V.5H.5z'/%3E%3Cpath fill='%23000' d='M1 .375h20v2H1zM1.375 11h5.5v1.375h-5.5zM6.875 5.5h6.875v1.375H6.875zM6.875 5.5V11H5.5V5.5zM9.625 17.875v1.375H8.25v-1.375zM11 19.25v1.375H9.625V19.25zM19.25 11v1.375h-1.375V11zM17.875 12.375v1.375H16.5v-1.375zM16.5 13.75v1.375h-1.375V13.75zM15.125 15.125V16.5H13.75v-1.375zM13.75 16.5v1.375h-1.375V16.5zM12.375 17.875v1.375H11v-1.375zM8.25 16.5v1.375H6.875V16.5zM6.875 15.125V16.5H5.5v-1.375zM5.5 13.75v1.375H4.125V13.75zM4.125 12.375v1.375H2.75v-1.375z'/%3E%3Cpath fill='%23000' d='M2.75 11v1.375H1.375V11zM15.125 5.5V11H13.75V5.5zM13.75 11h5.5v1.375h-5.5z'/%3E%3C/svg%3E");height:23.38px}
+::-webkit-scrollbar-button:vertical:end:active{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='22' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' stroke='%23000' d='M.5 22.88h21V.5H.5z'/%3E%3Cpath fill='%23000' d='M1 .375h20v2H1zM1.375 11.002h5.5v1.375h-5.5zM6.875 5.501h6.875v11.002H6.875zM6.875 5.501v5.501H5.5v-5.5zM9.625 17.879v1.375H8.25v-1.375zM11 19.254v1.375H9.625v-1.375zM19.25 11.002v1.375h-1.375v-1.375zM17.875 12.378v1.375H13.75v-1.375zM16.5 13.753v1.375h-2.75v-1.375zM15.125 15.128v1.375H13.75v-1.375zM13.75 16.503v1.375h-1.375v-1.375zM12.375 17.879v1.375h-2.75v-1.375zM12.375 16.503v1.375h-5.5v-1.375zM6.875 15.128v1.375H5.5v-1.375zM6.875 13.753v1.375h-2.75v-1.375zM6.875 12.378v1.375H2.75v-1.375z'/%3E%3Cpath fill='%23000' d='M2.75 11.002v1.375H1.375v-1.375zM15.125 5.501v5.501H13.75v-5.5zM13.75 11.002h5.5v1.375h-5.5z'/%3E%3C/svg%3E");background-repeat:no-repeat;height:23.38px}
+::-webkit-scrollbar-button:horizontal:start{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='23' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' stroke='%23000' d='M.813 22.187v-21h22.375v21z'/%3E%3Cpath fill='%23000' d='M23.313 21.688v-20h-2v20zM12.688 21.313v-5.5h-1.376v5.5zM18.188 15.813V8.936h-1.375v6.876z'/%3E%3Cpath fill='%23000' d='M18.188 15.813h-5.5v1.374h5.5zM5.813 13.063H4.438v1.374h1.375zM4.438 11.688H3.063v1.374h1.374zM12.688 3.438h-1.376v1.374h1.376zM11.313 4.813H9.937v1.375h1.376zM9.938 6.188H8.562v1.375h1.376zM8.563 7.563H7.187v1.375h1.375zM7.188 8.938H5.813v1.374h1.375zM5.813 10.313H4.438v1.374h1.375zM7.188 14.438H5.813v1.374h1.375zM8.563 15.813H7.187v1.374h1.375zM9.938 17.188H8.562v1.375h1.376zM11.313 18.563H9.937v1.375h1.376zM12.688 19.938h-1.376v1.375h1.376zM18.188 7.563h-5.5v1.375h5.5z'/%3E%3Cpath fill='%23000' d='M12.688 8.938v-5.5h-1.376v5.5z'/%3E%3C/svg%3E");background-repeat:no-repeat;height:23.38px}
+::-webkit-scrollbar-button:horizontal:start:active{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='23' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' stroke='%23000' d='M.81 22.19v-21h22.38v21z'/%3E%3Cpath fill='%23000' d='M23.315 21.69v-20h-2v20zM12.688 21.315v-5.5h-1.375v5.5zM18.189 15.815V8.94H7.187v6.875z'/%3E%3Cpath fill='%23000' d='M18.189 15.815h-5.501v1.375h5.5zM5.811 13.065H4.436v1.375h1.375zM4.436 11.69H3.06v1.375h1.375zM12.688 3.44h-1.375v1.375h1.375zM11.312 4.815H9.937V8.94h1.375zM9.937 6.19H8.562v2.75h1.375z'/%3E%3Cpath fill='%23000' d='M8.562 7.565H7.187V8.94h1.375zM7.186 8.94H5.811v1.375h1.375zM5.811 10.315H4.436v2.75h1.375zM7.186 10.315H5.811v5.5h1.375zM8.562 15.815H7.187v1.375h1.375z'/%3E%3Cpath fill='%23000' d='M9.937 15.815H8.562v2.75h1.375zM11.312 15.815H9.937v4.125h1.375zM12.688 19.94h-1.375v1.375h1.375zM18.189 7.565h-5.501V8.94h5.5z'/%3E%3Cpath fill='%23000' d='M12.688 8.94v-5.5h-1.375v5.5z'/%3E%3C/svg%3E");background-repeat:no-repeat;height:23.38px}
+::-webkit-scrollbar-button:horizontal:end{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='23' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' stroke='%23000' d='M23.188 22.188v-21H.813v21z'/%3E%3Cpath fill='%23000' d='M.688 21.687v-20h2v20zM11.313 21.312v-5.5h1.375v5.5zM5.813 15.812V8.937h1.375v6.875zM5.813 15.813h5.5v1.375h-5.5zM18.188 13.063h1.375v1.375h-1.375zM19.563 11.688h1.375v1.375h-1.375zM11.313 3.438h1.375v1.375h-1.375zM12.688 4.813h1.375v1.375h-1.375zM14.063 6.188h1.375v1.375h-1.375zM15.438 7.563h1.375v1.375h-1.375zM16.813 8.938h1.375v1.375h-1.375zM18.188 10.313h1.375v1.375h-1.375zM16.813 14.438h1.375v1.375h-1.375zM15.438 15.813h1.375v1.375h-1.375zM14.063 17.188h1.375v1.375h-1.375zM12.688 18.563h1.375v1.375h-1.375z'/%3E%3Cpath fill='%23000' d='M11.313 19.938h1.375v1.375h-1.375zM5.813 7.563h5.5v1.375h-5.5zM11.313 8.937v-5.5h1.375v5.5z'/%3E%3C/svg%3E");height:23.38px}
+::-webkit-scrollbar-button:horizontal:end:active{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='23' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' stroke='%23000' d='M23.19 22.19v-21H.81v21z'/%3E%3Cpath fill='%23000' d='M.685 21.69v-20h2v20zM11.312 21.315v-5.5h1.375v5.5zM5.811 15.815V8.94h11.002v6.875z'/%3E%3Cpath fill='%23000' d='M5.811 15.815h5.501v1.375H5.811zM18.189 13.065h1.375v1.375h-1.375zM19.564 11.69h1.375v1.375h-1.375zM11.312 3.44h1.375v1.375h-1.375zM12.688 4.815h1.375V8.94h-1.375zM14.063 6.19h1.375v2.75h-1.375zM15.438 7.565h1.375V8.94h-1.375zM16.814 8.94h1.375v1.375h-1.375zM18.189 10.315h1.375v2.75h-1.375zM16.814 10.315h1.375v5.5h-1.375zM15.438 15.815h1.375v1.375h-1.375zM14.063 15.815h1.375v2.75h-1.375zM12.688 15.815h1.375v4.125h-1.375zM11.312 19.94h1.375v1.375h-1.375zM5.811 7.565h5.501V8.94H5.811z'/%3E%3Cpath fill='%23000' d='M11.312 8.94v-5.5h1.375v5.5z'/%3E%3C/svg%3E");background-repeat:no-repeat;height:23.38px}
+
+.apple{background:url("data:image/svg+xml;charset=utf-8,%3Csvg width='18' height='22' viewBox='0 0 9 11' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 0h2v1H5zM4 1h2v1H4zM4 2h1v1H4zM1 3h3v1H1zM5 3h3v1H5zM0 4h9v1H0zM0 5h7v2H0zM0 7h9v2H0zM1 9h7v1H1zM2 10h2v1H2zM5 10h2v1H5z'/%3E%3C/svg%3E");background-repeat:no-repeat;border:none;display:inline-block;height:22px;margin-right:2px;width:18px}
+
+body {
+  background: linear-gradient(90deg, #ffffff 21px, transparent 1%) center, linear-gradient(#ffffff 21px, transparent 1%) center, #000000;
+  /* background-size: 22px 22px; */
+  /* background-attachment: fixed; */
+}
+
+a {
+  color: black;
+  text-decoration: underline;
+}
+
+hr {
+  border-top: 0.15em solid #000;
+}
+
+/*.container {
+  width: 50%;
+  margin: 0 auto;
+  display: block;
+}
+*/
+h1,
+.heading {
+  font-family: Chicago;
+  font-size: 1em;
+}
+
+h2 {
+  font-family: Chicago;
+  font-size: 2em;
+}
+
+/* buttons */
+.standard-button {
+  display: block;
+  min-width: 59px;
+  min-height: 20px;
+}
+
+/* dialogs & modals */
+.standard-dialog {
+  border: 2px solid;
+  padding: 10px;
+  box-shadow: var(--box-shadow);
+  background-color: white;
+}
+
+.modal-dialog, .alert-box {
+  width: auto;
+  padding: 13px;
+  background: #fff;
+}
+
+.modal-contents, .alert-contents {
+  padding: 10px;
+}
+
+.modeless-dialog {
+  height: 100%;
+  padding: 1.5rem 0.5rem 0.5rem 0.5rem;
+  font-size: 18px;
+  letter-spacing: -0.025em;
+}
+
+.inner-border {
+  border-color: black;
+  border-top: 3.5px solid;
+  border-bottom: 3.5px solid;
+  border-left: 5px solid;
+  border-right: 5px solid;
+}
+.outer-border {
+  border-color: black;
+  border: 2px solid;
+  padding: 3px;
+}
+
+/* title bar */
+.title-bar {
+  flex: none;
+  display: flex;
+  align-items: center;
+  height: 1.5rem;
+  margin: 0.1rem 0;
+  padding: 0.2rem 0.1rem;
+  background: linear-gradient(#000 50%, transparent 50%);
+  background-size: 6.6666666667% 13.3333333333%;
+  background-clip: content-box;
+}
+.title-bar .title {
+  padding: 0 0.5em;
+  margin: 0 auto;
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.1;
+  text-align: center;
+  background: #fff;
+  cursor: default;
+  font-family: Chicago_12;
+}
+
+.inactive-title-bar {
+  flex: none;
+  display: flex;
+  align-items: center;
+  height: 1.5rem;
+  margin: 0.1rem 0;
+  padding: 0.2rem 0.1rem;
+  background-size: 6.6666666667% 13.3333333333%;
+  background-clip: content-box;
+}
+.inactive-title-bar .title {
+  padding: 0 0.5em;
+  margin: 0 auto;
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.1;
+  text-align: center;
+  cursor: default;
+  font-family: Chicago_12;
+  color:#A5A5A5;
+}
+
+.title-bar button {
+  position: relative;
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 0 0.2rem;
+  border: 4px solid #000;
+  background-color: #fff;
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(0.5);
+}
+.title-bar button span {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
+.title-bar button.close:hover{
+  opacity: 1;
+}
+.title-bar button.close::before, .title-bar button.close::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+}
+.title-bar button.close::before {
+  background: linear-gradient(#000 0%, #000 100%) left center, linear-gradient(#000 0%, #000 100%) right center, linear-gradient(#000 0%, #000 100%) center top, linear-gradient(#000 0%, #000 100%) center bottom;
+  background-size: 30% 4px, 30% 4px, 4px 30%, 4px 30%;
+  background-repeat: no-repeat;
+}
+.title-bar button.close::after {
+  background: linear-gradient(#000 0%, #000 100%) left center, linear-gradient(#000 0%, #000 100%) right center, linear-gradient(#000 0%, #000 100%) center top, linear-gradient(#000 0%, #000 100%) center bottom;
+  background-size: 22.5% 3.6363636364px, 22.5% 3.6363636364px, 3.6363636364px 22.5%, 3.6363636364px 22.5%;
+  background-repeat: no-repeat;
+  transform: rotate(45deg) scale(1.1);
+}
+.title-bar button.close:active::before, .title-bar button.close:active::after {
+  opacity: 1;
+}
+.title-bar button.resize {
+  background: linear-gradient(#000 0%, #000 100%) left 58%, linear-gradient(to bottom, #000 0%, #000 100%) 58% top;
+  background-size: 60% 4px, 4px 60%;
+  background-repeat: no-repeat;
+  background-color: #fff;
+}
+.title-bar button.resize:active {
+  background: #fff;
+}
+.title-bar button.hidden {
+  visibility: hidden;
+}
+
+.window {
+  flex-direction: column;
+  margin: 1rem;
+  min-width: 320px;
+  overflow: hidden;
+  background-color: #fff;
+  border: 0.1em solid #000;
+  font-family: "Inconsolata", Menlo, Chicago, Geneva;
+}
+.window-pane {
+  overflow-y: scroll;
+  height: 100%;
+  padding: 1rem 2rem;
+  font-size: 18px;
+  letter-spacing: -0.025em;
+  /*margin-bottom: 1rem;*/
+}
+.window-pane::-webkit-scrollbar {
+  width: 22px;
+  background-color: #fff;
+}
+.window-pane::-webkit-scrollbar-track {
+  background: linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000);
+  background-color: white;
+  background-size: 4px 4px;
+  background-position: 0 0, 2px 2px;
+  width: 10px;
+  border-left: 4px solid black;
+}
+.window-pane::-webkit-scrollbar-thumb {
+  width: 20px;
+  box-sizing: content-box;
+  background-color: #fff;
+  border: 2px solid black;
+  border-right: none;
+}
+
+.separator {
+  flex: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /*padding: 0.4rem 0.8rem;*/
+  border-top: 0.1rem solid black;
+  border-width: 0.1rem 0;
+  font-size: 1rem;
+}
+
+.details-bar {
+  flex: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.4rem 0.8rem;
+  border: 0.1rem solid black;
+  border-width: 0.1rem 0;
+  font-size: 1rem;
+  font-weight: 100;
+}
+
+
+/* buttons */
+.btn {
+  min-height: 20px;
+  min-width: 59px;
+  padding: 0 20px;
+  text-align:center;
+  background: white;
+  border-style: solid;
+  border-width: 5.5px;
+  border-image: url("./icon/button.png") 30 stretch;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: Chicago_12;
+  cursor: pointer;
+}
+
+.btn:active {
+  background: black;
+  border-radius:6px;
+  color: white;
+  font-family: Chicago_12;
+}
+
+.btn:disabled {
+  min-height: 20px;
+  min-width: 59px;
+  text-align:center;
+  background: white;
+  border-style: solid;
+  border-width: 5.5px;
+  border-image: url("./icon/button.png") 30 stretch;
+  color: #B6B7B8;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: Chicago_12;
+}
+
+/* text input */
+input  {
+  border: 1.5px solid black;
+  font-family: Chicago_12;
+  font-size: 18px;
+  padding-left: 5px;
+}
+
+input:focus  {
+  outline:none;
+}
+
+input[type="text"]:focus-visible,
+input[type="email"]:focus-visible,
+input[type="password"]:focus-visible,
+input[type="number"]:focus-visible,
+input[type="date"]:focus-visible,
+input[type="time"]:focus-visible,
+input[type="datetime"]:focus-visible,
+input[type="datetime-local"]:focus-visible,
+input[type="month"]:focus-visible,
+input[type="week"]:focus-visible,
+input[type="search"]:focus-visible,
+input[type="tel"]:focus-visible,
+input[type="color"]:focus-visible,
+textarea:focus {
+  background: #000;
+  color: #fff;
+}
+
+input[type="radio"] + label::before {
+  border-image: svg-load("./icon/radio-border.svg");
+  width: 20px;
+  height: 20px;
+}
+
+input[type="checkbox"] + label::before {
+  border: 1.5px solid black;
+  width: 20px;
+  height: 20px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0;
+  background: 0;
+  position: fixed;
+  opacity: 0;
+  border: none;
+}
+
+input[type="radio"] + label,
+input[type="checkbox"] + label {
+  line-height: 13px;
+  padding-left: 5px;
+}
+
+input[type="radio"] + label {
+  position: relative;
+  margin-left: var(--radio-total-width);
+}
+
+input[type="radio"] + label::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: calc(-1 * (var(--radio-total-width-precalc)));
+  display: inline-block;
+  width: var(--radio-width);
+  height: var(--radio-width);
+  margin-right: var(--radio-label-spacing);
+  background: svg-load("./icon/radio-border.svg");
+}
+
+input[type="radio"]:focus-visible + label::before,
+input[type="radio"]:hover + label::before {
+  background-image: svg-load("./icon/radio-border-focused.svg");
+}
+
+input[type="radio"]:checked + label::after {
+  content: "";
+  display: block;
+  width: var(--radio-dot-width);
+  height: var(--radio-dot-width);
+  top: var(--radio-dot-top);
+  left: var(--radio-dot-left);
+  position: absolute;
+  background: svg-load("./icon/radio-dot.svg");
+}
+
+input[type="checkbox"] + label {
+  position: relative;
+  margin-left: var(--checkbox-total-width);
+}
+
+input[type="checkbox"] + label::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * (var(--checkbox-total-width-precalc)));
+  display: inline-block;
+  width: var(--checkbox-width);
+  height: var(--checkbox-width);
+  background: var(--button-highlight);
+  box-shadow: var(--border-field);
+  margin-right: var(--radio-label-spacing);
+}
+
+input[type="checkbox"]:focus-visible + label::before,
+input[type="checkbox"]:hover + label::before {
+  outline: 1px solid black;
+}
+
+input[type="checkbox"]:checked + label::after {
+  content: "";
+  display: block;
+  width: var(--checkmark-width);
+  height: var(--checkmark-width);
+  position: absolute;
+  top: var(--checkmark-top);
+  left: calc(
+    -1 * (var(--checkbox-total-width-precalc)) + var(--checkmark-left)
+  );
+  background: svg-load("./icon/checkmark.svg");
+  background-repeat: no-repeat;
+}
+
+
+input[type="checkbox"][disabled] + label::before {
+  background: var(--surface);
+}
+
+input[type="checkbox"][disabled]:checked + label::after {
+  background: svg-load("./icon/checkmark-disabled.svg");
+}
+
+.field-row {
+  display: flex;
+  align-items: center;
+  font-family: Chicago_12;
+  font-size: 1em;
+}
+
+[class^="field-row"] + [class^="field-row"] {
+  margin-top: var(--grouped-element-spacing);
+}
+
+.field-row > * + * {
+  margin-left: var(--grouped-element-spacing);
+}
+
+/* Form */
+form {
+  font-family: "Inconsolata", Menlo, Chicago, Geneva;
+  font-size:14px;
+}
+
+/* select menu */
+select {
+  border: 1.5px solid;
+  height: auto;
+  width: 10rem;
+  font-family: Chicago_12;
+  font-size: 18px;
+  background-image: svg-load("./icon/select-button.svg");
+  background-position: top 2px right 2px;
+  background-repeat: no-repeat;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  padding-left: 20px;
+  -webkit-box-shadow: 2px 8px 0 0px black;
+	   -moz-box-shadow: 2px 8px 0 0px black;
+	        box-shadow: 2px 2px 0 -1px black;
+}
+
+/* menu-bar */
+ul[role] {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  cursor: pointer;
+  font-family: Chicago_12;
+  font-size: 1em;
+}
+ul[role="menu-bar"] {
+  display: flex;
+  background: white;
+}
+ul[role="menu-bar"] > [role="menu-item"] {
+  position: relative;
+  padding: 6px 10px;
+}
+ul[role="menu-bar"] > [role="menu-item"]:focus, ul[role="menu-bar"] > [role="menu-item"]:focus-within, ul[role="menu-bar"] > [role="menu-item"]:hover {
+  background: #000;
+  color: #fff;
+  outline: none;
+}
+ul[role="menu"] {
+  position: relative;
+  min-width: 200px;
+  background: white;
+  color: initial;
+  border: 1px solid;
+  box-shadow: var(--box-shadow);
+}
+ul[role="menu"]::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  left: 28px;
+  width: 2px;
+  box-shadow: inset 1px 0 rgba(0, 0, 0, 0.15), inset -1px 0 #fff;
+}
+[role="menu-item"] ul[role="menu"] {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 99;
+}
+ul[role="menu"] > [role="menu-item"] > a, ul[role="menu"] > [role="menu-item"] > button, ul[role="menu"] > [role="menu-item"][aria-haspopup="true"] {
+  all: unset;
+  position: relative;
+  padding: 5px 20px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+
+}
+ul[role="menu"] > [role="menu-item"] > a:hover, ul[role="menu"] > [role="menu-item"] > button:hover, ul[role="menu"] > [role="menu-item"][aria-haspopup="true"]:hover, ul[role="menu"] > [role="menu-item"] > a:focus, ul[role="menu"] > [role="menu-item"] > button:focus, ul[role="menu"] > [role="menu-item"][aria-haspopup="true"]:focus {
+  background: #000;
+  color: white;
+}
+ul [role="menu-item"] {
+  position: relative;
+}
+ul [role="menu-item"]:focus > [role="menu"], ul [role="menu-item"]:focus-within > [role="menu"] {
+  display: block;
+}
+ul [role="menu-item"].divider::after {
+  content: "";
+  pointer-events: none;
+  display: block;
+  padding: 0;
+  border-top: 1.5px dotted #000;
+}
+
+/* styles specific to demo page */
+.menu-items > li {
+  margin-bottom: 1rem;
+}
