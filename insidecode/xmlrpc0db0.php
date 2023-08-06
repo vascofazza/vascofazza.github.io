@@ -2,13 +2,13 @@
 	<service>
 		<engineName>WordPress</engineName>
 		<engineLink>https://wordpress.org/</engineLink>
-		<homePageLink>https://insidecode.it</homePageLink>
+		<homePageLink>http://insidecode.it</homePageLink>
 		<apis>
-			<api name="WordPress" blogID="1" preferred="true" apiLink="https://insidecode.it/xmlrpc.php" />
-			<api name="Movable Type" blogID="1" preferred="false" apiLink="https://insidecode.it/xmlrpc.php" />
-			<api name="MetaWeblog" blogID="1" preferred="false" apiLink="https://insidecode.it/xmlrpc.php" />
-			<api name="Blogger" blogID="1" preferred="false" apiLink="https://insidecode.it/xmlrpc.php" />
-				<api name="WP-API" blogID="1" preferred="false" apiLink="https://insidecode.it/wp-json/" />
+			<api name="WordPress" blogID="1" preferred="true" apiLink="http://insidecode.it/xmlrpc.php" />
+			<api name="Movable Type" blogID="1" preferred="false" apiLink="http://insidecode.it/xmlrpc.php" />
+			<api name="MetaWeblog" blogID="1" preferred="false" apiLink="http://insidecode.it/xmlrpc.php" />
+			<api name="Blogger" blogID="1" preferred="false" apiLink="http://insidecode.it/xmlrpc.php" />
+				<api name="WP-API" blogID="1" preferred="false" apiLink="http://insidecode.it/wp-json/" />
 			</apis>
 	</service>
 </rsd>
